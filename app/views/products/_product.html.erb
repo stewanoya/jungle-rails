@@ -16,7 +16,12 @@
       Details &raquo;
     <% end %>
   </footer>
-
+  <%# Will Check to see if quntity is empty, and display badge accordingly %>
+  <%if product.quantity == 0%>
+  <aside class="soldout">
+  SOLD OUT!
+  </aside>
+  <% end %>
   <aside class="price">
     <%= humanized_money_with_symbol product.price %>
   </aside>

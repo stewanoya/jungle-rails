@@ -46,10 +46,11 @@ class OrdersController < ApplicationController
       product = entry[:product]
       quantity = entry[:quantity]
       order.line_items.new(
+        # Might have to fix the pricing in here.
         product: product,
         quantity: quantity,
-        item_price: humanized_money_with_symbol product.price,
-        total_price: humanized_money_with_symbol product.price * quantity
+        item_price: product.price,
+        total_price: product.price * quantity
       )
     end
     order.save!

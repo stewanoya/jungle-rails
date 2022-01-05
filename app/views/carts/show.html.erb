@@ -1,9 +1,15 @@
 <section class="cart-show">
-
   <header class="page-header">
     <h1>My Cart</h1>
   </header>
-
+    <%# if array length is 0, then we show message. Else we do everything else %>
+  <% if enhanced_cart.length == 0%>
+  <div class="alert alert-info" role="alert">
+  <h1 class="text-center">Oops!</h1>
+  <p class="text-center">Looks like your cart is empty..</p>
+  <p class="text-center">Click <strong><%= link_to "here", root_path(@products) %></strong> to go back</p>
+  </div>
+  <% else %>
   <div class="panel panel-default items">
     <table class="table table-bordered">
       <thead>
@@ -51,3 +57,4 @@
   </div>
 
 </section>
+<%end%>

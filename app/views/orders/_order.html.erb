@@ -1,0 +1,17 @@
+<tr>
+  <td>
+    <h5><%=item.product.name%><h5>
+  </td>
+  <td>
+    <%= image_tag (item.product.image.tiny)%>
+  </td>
+  <td>
+    <%= item.product.description%>
+  </td>
+  <td>
+    <p class="text-right" style="font-size: 1em;"><%= item.quantity%></p>
+  </td>
+  <td>
+    <p class="text-right" style="font-size: 1em;"> <%= humanized_money_with_symbol item.item_price_cents / 100.0 * item.quantity %> </p>
+  </td>
+</tr>

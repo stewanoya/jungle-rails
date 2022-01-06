@@ -1,9 +1,13 @@
 <h1> Signup! </h1>
 
-<%= form_for :user, url: '/users' do |f|%>
-  Name: <%= f.text_field :name%>
-  Email: <%= f.text_field :email%>
-  Password: <%= f.password_field :password%>
-  Password Confirmation: <%= f.password_field :password_confirmation%>
-  <%= f.submit "Submit"%>
+<div class="jumbotron">
+  <%= form_for :user, url: '/users' do |f|%>
+  <div style="display:flex; flex-direction: column;">
+    Name: <%= f.text_field :name%>
+    Email: <%= f.text_field :email%>
+    Password: <%= f.password_field :password%>
+    Password Confirmation: <%= f.password_field :password_confirmation%>
+  </div>
+    <%= f.submit "Submit", class: "btn btn-success"%>
+</div>
 <% end %>

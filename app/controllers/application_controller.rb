@@ -5,6 +5,15 @@ class ApplicationController < ActionController::Base
 
   private
 
+  def current_user
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  end
+  helper_method :current_user
+# probably don't need authorize function since visitors can visit all sections of the site.
+  def authorize
+    redirect_to '/login' unless current_user
+  end
+
   def cart
     @cart ||= cookies[:cart].present? ? JSON.parse(cookies[:cart]) : {}
   end

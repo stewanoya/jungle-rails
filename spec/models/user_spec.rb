@@ -90,5 +90,68 @@ RSpec.describe User, type: :model do
     end
   end
 
+  describe '.authenticate_with_credentials' do 
+
+    it "should return nil if authentication fails" do
+    user = User.new(
+      name: "Stew",
+      email: "test@test.com",
+      password: "1234",
+      password_confirmation: "1234",
+      )
+    user.save!
+      email = "test@test.com"
+      password = "123"
+
+      expect(User.authenticate_with_credentials(email, password)).to eq(nil)
+    end
+
+    it "should return the user if authentication passes" do
+      user = User.new(
+        name: "Stew",
+        email: "test@test.com",
+        password: "1234",
+        password_confirmation: "1234",
+        )
+      user.save!
+        email = "test@test.com"
+        password = "1234"
+  
+        expect(User.authenticate_with_credentials(email, password)).to eq(user)
+      end
+    
+      it "should work if there is whitespace before or after email" do
+        user = User.new(
+          name: "Stew",
+          email: "test@test.com",
+          password: "1234",
+          password_confirmation: "1234",
+          )
+        user.save!
+          email = "    test@test.com   "
+          password = "1234"
+    
+          expect(User.authenticate_with_credentials(email, password)).to eq(user)
+        end
+      
+      it "should work if email casing is weird" do
+        user = User.new(
+          name: "Stew",
+          email: "test@test.com",
+          password: "1234",
+          password_confirmation: "1234",
+          )
+        user.save!
+          email = "TEST@teSt.com"
+          password = "1234"
+    
+          expect(User.authenticate_with_credentials(email, password)).to eq(user)
+        end
+
+
+  end
+
+
+
 
 end

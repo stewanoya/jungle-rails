@@ -30,7 +30,7 @@ RSpec.describe Product, type: :model do
       })
       expect(product).to_not be_valid
       puts ""
-      print "looking for expect error in array -> " 
+      print "Validation error in array -> " 
       print product.errors.full_messages
     end
 
@@ -46,7 +46,7 @@ RSpec.describe Product, type: :model do
       })
       expect(product).to_not be_valid
       puts ""
-      print "looking for expect error in array -> " 
+      print "Validation error in array -> " 
       print product.errors.full_messages
 
     end
@@ -63,7 +63,7 @@ RSpec.describe Product, type: :model do
       })
       expect(product).to_not be_valid
       puts ""
-      print "looking for expect error in array -> " 
+      print "Validation error in array -> " 
       print product.errors.full_messages
     end
 
@@ -80,7 +80,7 @@ RSpec.describe Product, type: :model do
       })
       expect(product).to_not be_valid
       puts ""
-      print "looking for expect error in array -> " 
+      print "Validation error in array -> " 
       print product.errors.full_messages
    end
 

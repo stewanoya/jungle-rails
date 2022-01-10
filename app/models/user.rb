@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   # is a class method because it is defined with self.(methodName)
   # would be an instance method if that wasn't there.
   def self.authenticate_with_credentials(email, password)
-   user = User.find_by(email: email)
+   user = User.find_by(email: email.strip.downcase)
 
     if user && user.authenticate(password)
     return user
